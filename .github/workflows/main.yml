@@ -15,10 +15,9 @@ jobs:
         uses: actions/checkout@v2.3.4
       - name: Install Packages
         run: |
-          ls -a
           cd personal-portfolio
           npm install --dev
       - name: Deploy
         run: |
-          ls -a
+          cd personal-portfolio
           npm run deploy -- -m "Deploy React app to GitHub Pages"
