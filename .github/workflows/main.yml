@@ -26,10 +26,10 @@ jobs:
           cd ../../../TheByrdSpot
           ls -a
           cd personal-portfolio
-          npm install --dev
+          CI=false npm install --dev
       - name: Deploy
         run: |
           cd ../../../TheByrdSpot
           ls -a
           cd personal-portfolio
-          npm run deploy -- -m "Deploy React app to GitHub Pages"
+          CI=false npm run deploy -- -m "Deploy React app to GitHub Pages"
