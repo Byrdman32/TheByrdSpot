@@ -6,22 +6,30 @@ on:
   workflow_dispatch:
 
 jobs:
-  Backup:
-    runs-on: ubuntu-latest
+  Build:
+    runs-on: self-hosted
     timeout-minutes: 120
     
     steps:
-      - name: checkout repo
-        uses: actions/checkout@v2.3.4
-      - name: setup git config
+      - name: Update Repo
         run: |
+          cd ../../../TheByrdSpot
+          git pull
+      - name: Setup Git Config
+        run: |
+          cd ../../../TheByrdSpot
+          ls -a
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
       - name: Install Packages
         run: |
+          cd ../../../TheByrdSpot
+          ls -a
           cd personal-portfolio
-          CI=false npm install --dev
+          npm install --dev
       - name: Deploy
         run: |
+          cd ../../../TheByrdSpot
+          ls -a
           cd personal-portfolio
-          CI=false npm run deploy -- -m "Deploy React app to GitHub Pages"
+          npm run deploy -- -m "Deploy React app to GitHub Pages"
