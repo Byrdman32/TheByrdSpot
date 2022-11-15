@@ -4,10 +4,6 @@ on:
   schedule:
     - cron: "0 0 * * *"
   workflow_dispatch:
-  
-env:
-  GIT_EMAIL: ${{ secrets.EMAIL }}
-  GIT_NAME: ${{ secrets.NAME }}
 
 jobs:
   Backup:
@@ -17,10 +13,10 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v2.3.4
-      - name: Setup Git
+      - name: setup git config
         run: |
-          git config --global user.email "%GIT_EMAIL%"
-          git config --global user.name "%GIT_NAME%"
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
       - name: Install Packages
         run: |
           cd personal-portfolio
