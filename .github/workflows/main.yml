@@ -11,7 +11,7 @@ jobs:
     timeout-minutes: 120
     
     steps:
-      - shell: cmd
+      - shell: bash
         env:
           GIT_EMAIL: ${{ secrets.EMAIL }}
           GIT_NAME: ${{ secrets.NAME }}
