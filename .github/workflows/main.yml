@@ -11,8 +11,16 @@ jobs:
     timeout-minutes: 120
     
     steps:
+      - shell: cmd
+        env:
+          GIT_EMAIL: ${{ secrets.EMAIL }}
+          GIT_NAME: ${{ secrets.NAME }}
       - name: checkout repo
         uses: actions/checkout@v2.3.4
+      - name: Setup Git
+        run: |
+          git config --global user.email "%GIT_EMAIL%"
+          git config --global user.name "%GIT_NAME%"
       - name: Install Packages
         run: |
           cd personal-portfolio
