@@ -19,4 +19,6 @@ jobs:
           cd personal-portfolio
           npm install --dev
       - name: Deploy
-        run: npm run deploy -- -m "Deploy React app to GitHub Pages"
+        run: |
+          ls -a
+          npm run deploy -- -m "Deploy React app to GitHub Pages"
