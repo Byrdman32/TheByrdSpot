@@ -1,0 +1,19 @@
+name: Deploy Updates
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  Backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    
+    steps:
+      - name: Install Packages
+        run: |
+          cd personal-portfolio
+          npm install --dev
+      - name: Deploy
+        run: npm run deploy -- -m "Deploy React app to GitHub Pages"
