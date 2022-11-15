@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Install Packages
         run: |
+          ls -a
           cd personal-portfolio
           npm install --dev
       - name: Deploy
