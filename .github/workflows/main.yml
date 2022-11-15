@@ -4,6 +4,10 @@ on:
   schedule:
     - cron: "0 0 * * *"
   workflow_dispatch:
+  
+env:
+  GIT_EMAIL: ${{ secrets.EMAIL }}
+  GIT_NAME: ${{ secrets.NAME }}
 
 jobs:
   Backup:
@@ -11,10 +15,6 @@ jobs:
     timeout-minutes: 120
     
     steps:
-      - shell: bash
-        env:
-          GIT_EMAIL: ${{ secrets.EMAIL }}
-          GIT_NAME: ${{ secrets.NAME }}
       - name: checkout repo
         uses: actions/checkout@v2.3.4
       - name: Setup Git
